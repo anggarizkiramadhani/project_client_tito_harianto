@@ -1,0 +1,828 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#34D399">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster+Two&display=swap" rel="stylesheet">
+  <style>
+    .huruf {
+      animation: blink 4s infinite;
+      text-shadow: -10px 50px 11px;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+    .teksltn {
+      font-family: 'Dancing Script', cursive, 'Lobster Two', cursive;
+    }
+    .font2 {
+      font-family: 'Dancing Script', 'Lobster Two', 'Yellowtail', cursive, sans-serif;
+      text-shadow: -10px 50px 11px;
+    }
+    .font3 {
+     font-family: 'Lobster Two', sans-serif, 'Orbitron', sans-serif, 'Yellowtail', cursive;
+    }
+    .pengalaman {
+      font-family: 'Castoro', serif, 'Dancing Script', cursive, 'Lobster Two', sans-serif, 'Orbitron', sans-serif, 'Yellowtail', cursive;
+      text-shadow: -10px 50px 11px;
+    }
+    .path1 {
+      fill: transparent;
+      stroke: rgb(0, 128, 128);
+      stroke-width: 40;
+      stroke-dasharray: 2900;
+      stroke-dashoffset: 2900;
+      animation: draw 5s linear infinite;
+    }
+    @keyframes draw {
+      0% {
+        stroke-dashoffset: 2900;
+      }
+      50% {
+        stroke-dashoffset: 0;
+      }
+    }
+    .snowflake {
+      position: absolute;
+      color: black;
+      font-size: 24px;
+      animation: snowfall 5s linear infinite;
+    }
+
+    @keyframes snowfall {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<nav id="nav" class="fixed inset-x-0 top-0 z-50 backdrop-blur-lg border-gray-200 from-white dark:bg-gray-800 dark:border-gray-700">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="#" class="flex items-center space-x-3">
+      <button id="rubah" class="flex z-20">
+        <svg id="matahari" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 xl:w-8 xl:h-8 text-yellow-400 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-11a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm0 12a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM4.343 5.757a1 1 0 0 0 1.414-1.414L4.343 2.929a1 1 0 0 0-1.414 1.414l1.414 1.414Zm11.314 8.486a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM4 10a1 1 0 0 0-1-1H1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm15-1h-2a1 1 0 1 0 0 2h2a1 1 0 0 0 0-2ZM4.343 14.243l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414a1 1 0 0 0-1.414-1.414ZM14.95 6.05a1 1 0 0 0 .707-.293l1.414-1.414a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 .707 1.707Z"/>
+        </svg>
+        <svg id="bulan" class="text-blue-600 hidden w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 xl:w-8 xl:h-8 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+          <path d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z"/>
+        </svg>
+      </button>
+      <p id="name" class="text-teal-400 font-serif text-xl sm:text-2xl md:text-3xl font-bold">
+        Tito Harianto
+      </p>
+    </a>
+    <button id="navbar" data-collapse-toggle="navbar-solid-bg" type="button" class="z-20 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-yellow-400 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-950" aria-controls="navbar-solid-bg" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+      </svg>
+    </button>
+    <div class="hidden z-10 w-full md:block md:w-auto absolute top-4 right-0 md:right-5" id="navbar-solid">
+      <ul id="pilih" class="flex bg-white flex-col font-medium mt-14 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+        <li>
+          <a href="#" id="homenav" class="md:hover:underline hover:transition hover:duration-700 decoration-teal-800 font-serif md:text-2xl my-1 md:my-0 block py-2 pl-3 pr-4 text-gray-50 md:text-teal-700 rounded-xl bg-teal-800 hover:bg-teal-400 md:hover:bg-transparent md:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent">Home</a>
+        </li>
+        <li>
+          <a href="#" id="aboutnav" class="md:hover:underline hover:transition hover:duration-700 decoration-teal-800 font-serif my-1 md:my-0 block py-2 pl-3 pr-4 md:text-2xl text-gray-50 md:text-teal-700 rounded-xl bg-teal-800 md:bg-transparent hover:bg-teal-400 md:hover:bg-transparent md:border-0 md:hover:text-teal-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+        </li>
+        <li>
+          <a href="#" id="skillnav" class="md:hover:underline hover:transition hover:duration-700 decoration-teal-800 font-serif my-1 md:my-0 block py-2 pl-3 pr-4 md:text-2xl text-gray-50 md:text-teal-700 rounded-xl bg-teal-800 md:bg-transparent hover:bg-teal-400 md:hover:bg-transparent md:border-0 md:hover:text-teal-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Skill</a>
+        </li>
+        <li>
+          <a href="#" id="plnnav" class="md:hover:underline hover:transition hover:duration-700 decoration-teal-800 font-serif my-1 md:my-0 block py-2 pl-3 pr-4 md:text-2xl text-gray-50 md:text-teal-700 rounded-xl bg-teal-800 md:bg-transparent hover:bg-teal-400 md:hover:bg-transparent md:border-0 md:hover:text-teal-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Experience</a>
+        </li>
+        <li>
+          <a href="#" id="contnav" class="md:hover:underline hover:transition hover:duration-700 decoration-teal-800 font-serif my-1 md:my-0 block py-2 pl-3 pr-4 md:text-2xl text-gray-50 md:text-teal-700 rounded-xl bg-teal-800 md:bg-transparent hover:bg-teal-400 md:hover:bg-transparent md:border-0 md:hover:text-teal-400 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="home" class="overflow-y-hidden overflow-x-hidden xl:flex bg-gradient-to-b from-teal-300 backdrop-blur-sm mt-20 sm:mt-16 md:mt-14 lg:mt-14 xl:mt-12">
+  <div class="xl:ml-20 xl:mt-20 flex flex-col items-center text-center xl:items-start xl:text-left">
+    <div class="relative">
+      <div id="tepi" class="animated absolute xl:-ml-4 xl:h-96 xl:border-l-4 xl:border-teal-400"></div>
+    </div>
+    <p data-aos="fade-up" class="font-bold text-3xl sm:text-6xl md:text-7xl xl:text-5xl font-serif">
+     <span class=" " style="color: #176B87;">Hello My Name Is &#128075;</span>
+    </p>
+    <div>
+      <p data-aos="fade-down" class="font-bold text-4xl sm:text-6xl md:text-7xl xl:text-5xl font-serif text-teal-800">Tito Harianto</p>
+      <p data-aos="fade-up" style="color: #176B87;" class="font-bold text-3xl sm:text-3xl md:text-4xl xl:text-5xl font-serif xl:max-w-lg">Divisi Geologi Kota Jember Jawa Timur</p>
+      <p data-aos="fade-down" id="teks" class="mx-auto font-bold xl:max-w-prose mt-2 text-base sm:text-base md:text-xl xl:text-xl">
+        I am a professional in the field of geology, and my job involves various crucial aspects in exploring and understanding the Earth and its natural resources. As a geologist, my tasks are not just about understanding geology and rocks, but also about uncovering the potential mineral resources within the ground.
+      </p>
+    </div>
+    <div class="mt-2">
+      <button class="bg-white hover:transition hover:duration-700 border-teal-400 border-4 font-bold hover:bg-teal-400 rounded-full py-3 px-3">
+        <span class="inline-flex items-center">Download CV
+          <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-120q-33 0-56.5-23.5T120-200v-400q0-33 23.5-56.5T200-680h160v80H200v400h560v-400H600v-80h160q33 0 56.5 23.5T840-600v400q0 33-23.5 56.5T760-120H200Zm280-200L320-480l56-56 64 63v-487h80v487l64-63 56 56-160 160Z"/></svg>
+        </span>
+      </button>
+      <button class="bg-white hover:transition hover:duration-700 border-teal-400 border-4 font-bold hover:bg-teal-400 rounded-full py-3 px-3">
+        <span class="inline-flex items-center">Get In Touch 
+          <svg class="ml-1" xmlns="http://www.w3.org/2000/svg" height="27" viewBox="0 -960 960 960" width="24"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div data-aos="flip-left" class="xl:mt-20">
+    <img class="pointer-events-none select-none locked mx-auto xl:ml-auto rounded-2xl" src="bpk.png" alt="Foto kak"/>
+  </div>
+</div>
+
+<div id="about" class="overflow-y-hidden overflow-x-hidden relative flex h-auto">
+<div id="aboutt" class="overflow-hidden inset-0 bg-gradient-to-tl from-teal-100 backdrop-blur-0">
+  <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000"  class="mt-10 md:mt-2 lg:mt-1 xl:mt-0 flex justify-center items-center">
+    <b class="huruf text-4xl lg:text-5xl animate-blink text-teal-800" style="animation-delay: 7s;">A</b>
+    <b class="huruf text-4xl lg:text-5xl animate-blink text-teal-800" style="animation-delay: 6s;">b</b>
+    <b class="huruf text-4xl lg:text-5xl animate-blink text-teal-800" style="animation-delay: 5s;">o</b>
+    <b class="huruf text-4xl lg:text-5xl animate-blink text-teal-800" style="animation-delay: 4s;">u</b>
+    <b class="huruf text-4xl lg:text-5xl animate-blink text-teal-800" style="animation-delay: 3s;">t</b>
+    <b class="huruf text-4xl ml-2 lg:text-5xl animate-blink text-teal-800" style="animation-delay: 2s;">M</b>
+    <b class="huruf text-4xl lg:text-5xl animate-blink text-teal-800" style="animation-delay: 1s;">e</b>
+  </div>
+  
+  <div class="flex xl:block justify-center items-center xl:justify-start">
+  <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" class="xl:float-left mt-5 xl:mt-16 bg-teal-500 w-full xl:w-6/12 h-96 p-6 border-4 border-teal-300 rounded-lg shadow-md text-white text-center transition-transform hover:-translate-y-2">
+    <div class="overflow-hidden w-20 h-20 border-4 border-teal-300 rounded-full mx-auto">
+        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
+        </svg>
+    </div>
+    <p class="font-semibold text-xl mt-5">Tito Harianto</p>
+    <p class="font-light text-lg">Profesional Geologi</p>
+    <div class="border-b border-teal-300 mt-5"></div>
+    <div class="mt-5">
+      <a href="#" class="flex flex-col items-center justify-center mr-4 text-gray-500 hover:text-teal-300">
+        <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path d="M480-100q-79 0-148-30t-120.5-81.5Q160-263 130-332t-30-148q0-79 30-148t81.5-120.5Q263-800 332-830t148-30v-100l160 160-160 160v-100q-108 0-184 76t-76 184q0 66 30.5 122.5T332-266q16-28 47.5-47.5T452-338q-3-21-8-42t-12-39q-11 9-24 14t-28 5q-33 0-56.5-23.5T300-480v-40q0-17-5.5-32T280-580q50-1 89 9 34 9 62 29.5t29 61.5q0 9-1.5 16.5T453-448q-13-10-26-18t-27-14q17 13 39 40t41 64q20-49 50-96.5t70-87.5q-23 16-44 34t-41 38q-7-11-11-24.5t-4-27.5q0-42 29-71t71-29h40q23 0 38-6t25-14q11-9 17-20 4 67-7 120-9 45-34 82.5T600-440q-15 0-28.5-4T547-455q-7 19-16 50.5T517-337q38 7 67 26t44 45q51-35 81.5-91T740-480h120q0 79-30 148t-81.5 120.5Q697-160 628-130t-148 30Z"/>
+        </svg>
+        <span class="font-serif text-2xl">Ilmu Kebumian</span>
+      </a>
+    </div>
+  </div>
+  </div>
+
+  <div id="data" data-aos="zoom-in-up" class="flex flex-col mt-9">
+    <h1 class="teksltn ml-auto font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl"><span class="text-yellow-600">H</span><span class="text-teal-500">ello</span> <span class="text-yellow-600">F</span><span class="text-teal-500">riend!</span> &#128373;</h1>
+    <p id="teks2" class="mr-2 text-left font-bold sm:text-base md:text-xl lg:text-2xl">Halo, nama saya adalah <span class="text-teal-600">Tito Harianto.</span> Saya adalah seorang profesional di bidang Geologi dengan <span class="text-teal-600">usia 26 tahun.</span> Saya telah menyelesaikan  <span class="text-teal-600">pendidikan S1 di Teknik Geologi dari Universitas Padjajaran, Bandung.</span></p>
+    <p id="teks3" class="mr-2 mt-2 text-right font-bold sm:text-base md:text-xl lg:text-2xl">Saya tinggal di alamat berikut: <span class="text-teal-600">Alamat: Jl. Garuda Timur 19, Perumahan Garuda, Bekasi, Jawa Barat Ini adalah tempat tinggal saya di Bekasi, Jawa Barat.</span> Saya senang berbagi informasi dan pengalaman dengan Anda di sini.</p>
+    <button class="hover:transition hover:duration-700 text-lg mt-2 py-2 flex justify-center border-2 border-black bg-white hover:bg-teal-400 rounded-lg font-bold">
+      Contant With Me<svg class="ml-1" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M320-520q17 0 28.5-11.5T360-560q0-17-11.5-28.5T320-600q-17 0-28.5 11.5T280-560q0 17 11.5 28.5T320-520Zm160 0q17 0 28.5-11.5T520-560q0-17-11.5-28.5T480-600q-17 0-28.5 11.5T440-560q0 17 11.5 28.5T480-520Zm160 0q17 0 28.5-11.5T680-560q0-17-11.5-28.5T640-600q-17 0-28.5 11.5T600-560q0 17 11.5 28.5T640-520ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
+    </button>
+  </div>
+</div>
+</div>
+
+
+<div id="tujuskill" class="overflow-x-hidden bg-gradient-to-tr from-teal-100 backdrop-blur-sm">
+  <div data-aos="fade-up" data-aos-duration="3000" id="skill" class="animate-bounce font2 flex justify-center text-5xl lg:text-6xl mt-1">
+    <h1 style="color: #176B87;" class="font-bold">My Skill</h1>
+  </div>
+
+  <div class="space-y-5">
+    <div data-aos="flip-down">
+     <h1 class="font3 text-teal-500 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl ml-5">Hard-Skill&#128187;</h1>
+    </div>
+    
+    <section class="space-y-5 xl:space-y-0 flex flex-col xl:flex-row xl:justify-center xl:space-x-5">
+     <div data-aos="zoom-in-right" class="border-4 bg-white border-teal-500 inline-block py-3 lg:py-4 xl:py-5 rounded-2xl">
+        <div class="mt-5">
+         <span style="color: #176B87;" class="font-serif font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">Arc-Gis</span>
+         <span style="color: #176B87;" class="lining-nums font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl ml-2">90%</span>
+        </div>
+        <div class="xl:w-[100vh] h-4 sm:h-5 md:h-6 lg:h-7 xl:h-8 bg-gray-300 mt-2">
+         <div id="load" class="w-80 h-full bg-teal-400"></div>
+        </div>
+     </div>
+
+      <div data-aos="zoom-in-left" class="border-4 bg-white border-teal-500 inline-block  py-3 lg:py-4 xl:py-5 rounded-2xl">
+        <div class="mt-5">
+         <span style="color: #176B87;" class="font-serif font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">Coal Interpreter</span>
+         <span style="color: #176B87;" class="lining-nums font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl ml-2">90%</span>
+        </div>
+        <div class="xl:w-[100vh] h-4 sm:h-5 md:h-6 lg:h-7 xl:h-8 bg-gray-300 mt-2">
+         <div id="load1" class="w-80 h-full bg-teal-400"></div>
+        </div>
+     </div>
+    </section>
+
+    <section class="space-y-5 xl:space-y-0 flex flex-col xl:flex-row xl:justify-center xl:space-x-5">
+      <div data-aos="zoom-in-right" class="border-4 bg-white border-teal-500 inline-block  py-3 lg:py-4 xl:py-5 rounded-2xl">
+        <div class="mt-5">
+         <span style="color: #176B87;" class="font-serif font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">Survey Analyst</span>
+         <span style="color: #176B87;" class="lining-nums font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl ml-2">90%</span>
+        </div>
+        <div class="xl:w-[100vh] h-4 sm:h-5 md:h-6 lg:h-7 xl:h-8 bg-gray-300 mt-2">
+         <div id="load2" class="w-80 h-full bg-teal-400"></div>
+        </div>
+     </div>
+ 
+      <div data-aos="zoom-in-left" class="border-4 bg-white border-teal-500 inline-block py-3 lg:py-4 xl:py-5 rounded-2xl">
+        <div class="mt-5">
+         <span style="color: #176B87;" class="font-serif font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl"> Geographic Map App</span>
+         <span style="color: #176B87;" class="lining-nums font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl ml-2">90%</span>
+        </div>
+        <div class="xl:w-[100vh] h-4 sm:h-5 md:h-6 lg:h-7 xl:h-8 bg-gray-300 mt-2">
+         <div id="load3" class="w-80 h-full bg-teal-400"></div>
+        </div>
+     </div>
+    </section>
+  </div>
+
+
+  <div class="space-y-5">
+    <div data-aos="flip-down">
+     <h1 style="color: #176B87;" class="font3 mt-8 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl ml-5">Soft-skill&#128713;</h1>
+    </div>
+    
+    <section class="space-y-5 xl:space-y-0 flex flex-col xl:flex-row xl:justify-center xl:space-x-5">
+     <div data-aos="zoom-in-right" class="border-4 bg-white border-teal-500 inline-block py-3 lg:py-4 xl:py-5 rounded-2xl">
+        <div class="mt-5">
+         <span style="color: #176B87;" class="font-serif font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">Communication</span>
+         <span style="color: #176B87;" class="lining-nums font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl ml-2">90%</span>
+        </div>
+        <div class="xl:w-[100vh] h-4 sm:h-5 md:h-6 lg:h-7 xl:h-8 bg-gray-300 mt-2">
+         <div id="load4" class="w-80 h-full bg-teal-400"></div>
+        </div>
+     </div>
+
+      <div data-aos="zoom-in-left" class="border-4 bg-white border-teal-500 inline-block py-3 lg:py-4 xl:py-5 rounded-2xl">
+        <div class="mt-5">
+         <span style="color: #176B87;" class="font-serif font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">Collaboration</span>
+         <span style="color: #176B87;" class="lining-nums font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl ml-2">90%</span>
+        </div>
+        <div class="xl:w-[100vh] h-4 sm:h-5 md:h-6 lg:h-7 xl:h-8 bg-gray-300 mt-2">
+         <div id="load5" class="w-80 h-full bg-teal-400"></div>
+        </div>
+     </div>
+    </section>
+
+    <section class="space-y-5 xl:space-y-0 flex flex-col xl:flex-row xl:justify-center xl:space-x-5">
+      <div data-aos="zoom-in-right" class="border-4 bg-white border-teal-500 inline-block  py-3 lg:py-4 xl:py-5 rounded-2xl">
+        <div class="mt-5">
+         <span style="color: #176B87;" class="font-serif font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">Problem solving</span>
+         <span style="color: #176B87;" class="lining-nums font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl ml-2">90%</span>
+        </div>
+        <div class="xl:w-[100vh] h-4 sm:h-5 md:h-6 lg:h-7 xl:h-8 bg-gray-300 mt-2">
+         <div id="load6" class="w-80 h-full bg-teal-400"></div>
+        </div>
+     </div>
+ 
+      <div data-aos="zoom-in-left" class="border-4 bg-white border-teal-500 inline-block  py-3 lg:py-4 xl:py-5 rounded-2xl">
+        <div class="mt-5">
+         <span style="color: #176B87;" class="font-serif font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">Analytical Thinking</span>
+         <span style="color: #176B87;" class="lining-nums font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl ml-2">90%</span>
+        </div>
+        <div class="xl:w-[100vh] h-4 sm:h-5 md:h-6 lg:h-7 xl:h-8 bg-gray-300 mt-2">
+         <div id="load7" class="w-80 h-full bg-teal-400"></div>
+        </div>
+     </div>
+    </section>
+  </div>
+</div>
+
+<div id="pln" class="overflow-y-hidden overflow-x-hidden bg-gradient-to-b from-teal-100 backdrop-blur-sm">
+  <header class="flex justify-center">
+    <h1 class="pengalaman text-4xl lg:text-5xl font-bold text-teal-600 animate-pulse">Experience &#128188;</h1>
+  </header>
+  
+  <section class="flex mt-10 sm:mt-0">
+    <div data-aos="fade-up" data-aos-duration="3000" class="w-20 h-20 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 xl:w-48 xl:h-48">
+     <svg class="path1" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm240-600h160v-80H400v80Zm400 360H600v80H360v-80H160v160h640v-160Zm-360 0h80v-80h-80v80Zm-280-80h200v-80h240v80h200v-200H160v200Zm320 40Z"/></svg>
+    </div>
+    
+    <div data-aos="fade-right" class="mt-5 sm:mt-11">
+      <h1 id="pt2" class="text-xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold font-serif">PT. AHASS SINAR REJEKI</h1>
+      <span id="pt" class="text-sm sm:text-xl md:text-3xl lg:text-4xl xl:text-4xl font-bold font-serif"><span class="text-yellow-500">Data Management</span> 2017-2018</span>
+    </div>
+  </section>
+
+  <section class="flex justify-end">
+    <div data-aos="fade-right" class="mt-5 sm:mt-11">
+     <h1 id="pt3" class="text-xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold font-serif">PT. BERAU COAL</h1>
+     <span id="pt4" class="text-sm sm:text-xl md:text-3xl lg:text-4xl xl:text-4xl font-bold font-serif"><span class="text-yellow-500">Coal Surveyor</span> 2018-2020</span>
+     
+    </div>
+
+    <div data-aos="fade-up" data-aos-duration="3000" class="w-20 h-20 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 xl:w-48 xl:h-48">
+      <svg class="path1" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm240-600h160v-80H400v80Zm400 360H600v80H360v-80H160v160h640v-160Zm-360 0h80v-80h-80v80Zm-280-80h200v-80h240v80h200v-200H160v200Zm320 40Z"/></svg>
+    </div>
+  </section>
+
+  <section class="flex">
+    <div data-aos="fade-up" data-aos-duration="3000" class="mt-1 sm:mt-0 w-20 h-20 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 xl:w-48 xl:h-48">
+     <svg class="path1" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm240-600h160v-80H400v80Zm400 360H600v80H360v-80H160v160h640v-160Zm-360 0h80v-80h-80v80Zm-280-80h200v-80h240v80h200v-200H160v200Zm320 40Z"/></svg>
+    </div>
+    
+    <div data-aos="fade-right" class="mt-5 sm:mt-11 flex flex-col">
+      <h1 id="pt6" class="text-xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold font-serif">PT. BIMA NUSA</h1>
+      <span id="pt7" class="text-sm sm:text-xl md:text-3xl lg:text-4xl xl:text-4xl font-bold font-serif"><span class="text-yellow-500">Geologic Coal Analyst, Field Division</span> 2021-Now</span>
+    </div>
+  </section>
+</div>
+
+<div id="contact" class="overflow-y-hidden overflow-x-hidden bg-gradient-to-t from-teal-100 backdrop-blur-sm">
+  <div data-aos="fade-down-right" class="mt-10">
+    <em class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-teal-500">Feel Free To Contact Me &#x1F4DD;</em>
+  </div>
+
+  <div data-aos="fade-right" class="sm:flex items-center justify-center">
+    <div class="sm:mr-3 mt-5 sm:mt-10 flex border-4 border-b-teal-500 px-10 py-5 rounded-2xl bg-white">
+      <img class="pointer-events-none select-none locked mt-5 w-7 h-7 sm:w-10 sm:h-10 md:w-16 md:h-16 mx-2 sm:mt-2" src="wa.png" alt="Gambar WhatsApp">
+      <div class="flex flex-col">
+       <h1 class="font-extrabold sm:text-3xl">WhatsApp</h1>
+       <p class="text-gray-500 font-bold">+62 813-3121-6166</p>
+       <p class="font-bold text-teal-400">Send Me a Message</p>
+      </div>
+    </div>
+
+    <div data-aos="fade-right" class="sm:mr-3 mt-3 sm:mt-10 flex border-4 border-b-teal-500 px-10 py-5 rounded-2xl bg-white">
+      <img class="pointer-events-none select-none locked mt-5 w-7 h-7 sm:w-10 sm:h-10 md:w-16 md:h-16 mx-2 sm:mt-2" src="email.png" alt="Gambar email">
+      <div class="flex flex-col">
+       <h1 class="font-extrabold sm:text-3xl">Email</h1>
+       <p class="text-gray-500 font-bold">titoharianto@gmail.com</p>
+       <p class="font-bold text-teal-400">Send Me a Message</p>
+      </div>
+    </div>
+  </div>
+<div>
+  
+<div id="text-container" class="z-10 p-10 relative">
+  <div id="snowflake-container" class="w-full h-screen absolute top-0 left-0 overflow-hidden"></div>
+
+  <div id="ipt" class="min-h-screen bg-gradient-to-tr from-teal-400 backdrop-blur-sm rounded-full py-6 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+      <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+      <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+        <form action="#" method="POST" class="max-w-md mx-auto">
+          <div class="mb-5">
+            <label for="email" class="block text-sm font-medium text-gray-700">Company Email</label>
+            <input type="text" id="email" name="email" class="mt-1 block w-full py-2 px-3 border-2 border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          </div>
+          <div class="mb-5">
+            <label for="textarea" class="block text-sm font-medium text-gray-700">How Can We Help You?</label>
+            <textarea name="textarea" id="textarea" rows="10" class="mt-1 block w-full py-2 px-3 border-2 border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+          </div>
+          <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+   
+<script>
+function createSnowflake() {
+  const snowflakeContainer = document.getElementById("snowflake-container");
+  const snowflake = document.createElement("div");
+  snowflake.className = "snowflake";
+  snowflake.innerHTML = "❄";
+  snowflake.style.left = Math.random() * window.innerWidth + "px";
+  snowflakeContainer.appendChild(snowflake);
+  setTimeout(() => {
+    snowflake.remove();
+  }, 5000);
+}
+setInterval(createSnowflake, 100);
+</script>
+
+  
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function() {
+ var teksElement = $("#teks");
+ var kataKunci = teksElement.text().split(" ");
+ var currentIndex = 0;
+
+  function animasiwarna() {
+    if (currentIndex < kataKunci.length) {
+      if (currentIndex > 0) {
+        kataKunci[currentIndex - 1] = kataKunci[currentIndex - 1].replace("text-violet-600", "");
+      }
+      kataKunci[currentIndex] = "<span class='text-violet-600'>" + kataKunci[currentIndex] + "</span>";
+      var teksBaru = kataKunci.join(" ");
+      teksElement.html(teksBaru);
+      currentIndex++;
+    }
+  } 
+  var interval = setInterval(animasiwarna, 500);
+});
+</script><!--teks warna jalan home-->
+
+
+
+<script>
+$(document).ready(function() {
+  function animatetepi() {
+    $("#tepi").animate({ height: "400px" }, 1000, function() {
+      $(this).animate({ height: "100px" }, 1000, animatetepi);
+    });
+  };
+  animatetepi();
+});
+</script><!--gerak panjang pendek-->
+
+
+
+<script>
+const load = document.getElementById("load");
+let width = 0;
+let direction = 0.1;
+
+function animateL() {
+  if (width >= 90) {
+    direction = -1;
+    return;
+  } 
+
+  width += direction;
+  load.style.width = width + "%";
+  requestAnimationFrame(animateL);
+}
+animateL();
+
+
+const load1 = document.getElementById("load1");
+let width1 = 0;
+let direction1 = 0.1;
+
+function animateL1() {
+  if (width1 >= 90) {
+    direction1 = -1;
+    return;
+  }
+
+  width1 += direction1;
+  load1.style.width = width1 + "%";
+  requestAnimationFrame(animateL1);
+}
+animateL1();
+
+
+const load2 = document.getElementById("load2");
+let width2 = 0;
+let direction2 = 0.1;
+
+function animateL2() {
+  if (width2 >= 90) {
+    direction2 = -1;
+    return;
+  }
+  width2 += direction2;
+  load2.style.width = width2 + "%";
+  requestAnimationFrame(animateL2);
+}
+animateL2();
+
+
+const load3 = document.getElementById("load3");
+let width3 = 0;
+let direction3 = 0.1;
+
+function animateL3() {
+  if (width3 >= 90) {
+    direction3 = -1;
+    return;
+  }
+  width3 += direction3;
+  load3.style.width = width3 + "%";
+  requestAnimationFrame(animateL3);
+}
+animateL3();
+
+
+const load4 = document.getElementById("load4");
+let width4 = 0;
+let direction4 = 0.1;
+
+function animateL4() {
+  if (width4 >= 90) {
+    direction4 = -1;
+    return;
+  }
+  width4 += direction4;
+  load4.style.width = width4 + "%";
+  requestAnimationFrame(animateL4);
+}
+animateL4();
+
+
+const load5 = document.getElementById("load5");
+let width5 = 0;
+let direction5 = 0.1;
+
+function animateL5() {
+  if (width5 >= 90) {
+    direction5 = -1;
+    return;
+  }
+  width5 += direction5;
+  load5.style.width = width5 + "%";
+  requestAnimationFrame(animateL5);
+}
+animateL5();
+
+
+const load6 = document.getElementById("load6");
+let width6 = 0;
+let direction6 = 0.1;
+
+function animateL6() {
+  if (width6 >= 90) {
+    direction6 = -1;
+    return;
+  }
+  width6 += direction6;
+  load6.style.width = width6 + "%";
+  requestAnimationFrame(animateL6);
+}
+animateL6();
+
+
+const load7 = document.getElementById("load7");
+let width7 = 0;
+let direction7 = 0.1;
+
+function animateL7() {
+  if (width7 >= 90) {
+    direction7 = -1;
+    return;
+  }
+  width7 += direction7;
+  load7.style.width = width7 + "%";
+  requestAnimationFrame(animateL7);
+}
+animateL7();
+</script><!--folume skill-->
+
+
+
+<script>
+document.getElementById("aboutnav").addEventListener("click", function(e) {
+e.preventDefault();
+var tuju = document.getElementById("about");
+var tujutop = tuju.offsetTop;
+
+  window.scrollTo({
+    top: tujutop,
+    behavior: "smooth"
+  });
+});
+
+document.getElementById("homenav").addEventListener("click", function(e) {
+e.preventDefault();
+var lapa = document.getElementById("home");
+var lapatop = lapa.offsetTop;
+
+  window.scrollTo({
+    top: lapatop,
+    behavior: "smooth"
+  });
+
+});
+
+document.getElementById("skillnav").addEventListener("click", function(e) {
+  e.preventDefault();
+  var seb = document.getElementById("tujuskill");
+  var sebtop = seb.offsetTop;
+
+  window.scrollTo({
+    left: 0,
+    top: sebtop,
+    behavior: "smooth"
+  });
+});
+
+document.getElementById("plnnav").addEventListener("click", function(e) {
+  e.preventDefault();
+  var plns = document.getElementById("pln");
+  var plnss = plns.offsetTop;
+
+  window.scrollTo({
+    left: 0,
+    top: plnss,
+    behavior: "smooth"
+  });
+});
+
+document.getElementById("contnav").addEventListener("click", function(e) {
+  e.preventDefault();
+  var ct = document.getElementById("contact");
+  var cts = ct.offsetTop;
+
+  window.scrollTo({
+    left: 0,
+    top: cts,
+    behavior: "smooth"
+  });
+});
+
+</script><!--SCROLL-->
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script><!--libry-->
+
+
+<script>
+const ketik = document.getElementById("name");
+const original = ketik.innerText;
+function typeText() {
+  let current = 1;
+  let interval;
+
+  interval = setInterval(function() {
+    if (current <= original.length) {
+      ketik.innerText = original.slice(0, current);
+      current++;
+    } else {
+      clearInterval(interval);
+      setTimeout(eraseText, 100);
+    }
+  }, 100);
+
+  function eraseText() {
+    let eraseIn = original.length;
+    interval = setInterval(function() {
+      if (eraseIn >= 1) {
+        ketik.innerText = original.slice(0, eraseIn);
+        eraseIn--;
+      } else {
+        clearInterval(interval);
+        setTimeout(typeText, 100);
+      }
+    }, 100);
+  }
+}
+typeText();
+</script><!--TEKS KETIK-->
+
+
+
+
+<script>
+const rubah = document.getElementById("rubah");
+const body = document.body;
+const nav = document.getElementById("nav");
+const teks = document.getElementById("teks");
+const teks2 = document.getElementById("teks2");
+const teks3 = document.getElementById("teks3");
+const pt = document.getElementById("pt");
+const pt2 = document.getElementById("pt2");
+const pt3 = document.getElementById("pt3");
+const pt4 = document.getElementById("pt4");
+const pt6 = document.getElementById("pt6");
+const pt7 = document.getElementById("pt7");
+
+const home = document.getElementById("home");
+const about = document.getElementById("aboutt");
+const skill = document.getElementById("tujuskill");
+const pln = document.getElementById("pln");
+const cot = document.getElementById("contact");
+const ipt = document.getElementById("ipt");
+let hitam = false;
+
+rubah.addEventListener("click", function () {
+  if (hitam) {
+    body.classList.remove("bg-gray-900");
+    body.classList.add("bg-gray-100");
+
+    nav.classList.remove("bg-gray-900");
+    nav.classList.add("bg-gray-100");
+    nav.style.backgroundColor = "rgba(0, 0, 0, 0)";
+
+    teks.classList.add("text-black");
+    teks.classList.remove("text-white");
+    teks2.classList.add("text-black");
+    teks2.classList.remove("text-white");
+    teks3.classList.add("text-black");
+    teks3.classList.remove("text-white");
+
+    pt.classList.remove("text-white");
+    pt2.classList.remove("text-white");
+    pt3.classList.remove("text-white");
+    pt4.classList.remove("text-white");
+    pt6.classList.remove("text-white");
+    pt7.classList.remove("text-white");
+
+    home.classList.add("from-teal-300");
+    about.classList.add("from-teal-100");
+    skill.classList.add("from-teal-100");
+    pln.classList.add("from-teal-100");
+    cot.classList.add("from-teal-100");
+    ipt.classList.add("from-teal-400");
+  } else {
+    body.classList.remove("bg-gray-100");
+    body.classList.add("bg-gray-900");
+    body.style.transition = "background-color 0.5s";
+
+    nav.classList.remove("bg-gray-100");
+    nav.classList.add("bg-gray-900");
+    nav.style.transition = "background-color 0.5s";
+    nav.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+    
+    teks.classList.remove("text-black");
+    teks.classList.add("text-white");
+    teks2.classList.remove("text-black");
+    teks2.classList.add("text-white");
+    teks3.classList.remove("text-black");
+    teks3.classList.add("text-white");
+    pt.classList.add("text-white");
+    pt2.classList.add("text-white");
+    pt3.classList.add("text-white");
+    pt4.classList.add("text-white");
+    pt6.classList.add("text-white");
+    pt7.classList.add("text-white");
+
+    home.classList.remove("from-teal-300");
+    about.classList.remove("from-teal-100");
+    skill.classList.remove("from-teal-100");
+    pln.classList.remove("from-teal-100");
+    cot.classList.remove("from-teal-100");
+    ipt.classList.remove("from-teal-400");
+  }
+  hitam = !hitam;
+});
+</script><!--CLICK WARNA BACKGROUND-->
+
+
+
+<script>
+const navbar = document.getElementById("navbar");
+const muncul = document.getElementById("navbar-solid");
+
+navbar.addEventListener("click", function () {
+  if (muncul.style.display === "none" || muncul.style.display === "") {
+    muncul.style.display = "block"; // Tampilkan elemen
+  } else {
+    muncul.style.display = "none"; // Sembunyikan elemen
+  }
+});
+</script><!--TOMBOL NAV-->
+
+<script>
+const matahari = document.getElementById("matahari");
+const bulan = document.getElementById("bulan");
+
+matahari.addEventListener("click", function () {
+ matahari.style.display = "none";
+ bulan.style.display = "inline-block";
+});
+bulan.addEventListener("click", function () {
+ bulan.style.display = "none";
+ matahari.style.display = "inline-block";
+});
+</script><!--CLICK ICON-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

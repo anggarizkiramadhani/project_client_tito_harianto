@@ -1,0 +1,13 @@
+$scrollbar-width: 0.0rem;
+
+body {
+    &::-webkit-scrollbar {
+      width: $scrollbar-width;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+}

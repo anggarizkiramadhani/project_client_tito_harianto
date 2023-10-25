@@ -1,0 +1,9 @@
+body::-webkit-scrollbar {
+  width: 0rem;
+}
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}/*# sourceMappingURL=main.css.map */
